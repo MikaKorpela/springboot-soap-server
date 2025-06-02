@@ -1,0 +1,43 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://pikecape.com/springboot/soap"
+  targetNamespace="http://pikecape.com/springboot/soap"
+  elementFormDefault="qualified"
+>
+
+    <xs:element name="getDuckRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getDuckResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="duck" type="tns:duck"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getDuckListRequest">
+        <xs:complexType/>
+    </xs:element>
+
+    <xs:element name="getDuckListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ducks" type="tns:duck" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="duck">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
